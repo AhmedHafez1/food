@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/components/ah_button.dart';
 import 'package:food_delivery/components/ah_text_field.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
-  final VoidCallback onSwitchToRegister;
+  final VoidCallback onSwitchToLogin;
 
-  LoginPage({super.key, required this.onSwitchToRegister});
+  RegisterPage({super.key, required this.onSwitchToLogin});
 
-  void onLoginPressed() {}
+  void onRegisterPressed() {}
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class LoginPage extends StatelessWidget {
             Icon(Icons.lock_open, size: 120, color: Colors.lightBlue),
             SizedBox(height: 30),
             Text(
-              'Login',
+              'Register',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
@@ -40,23 +41,29 @@ class LoginPage extends StatelessWidget {
               hintText: 'Password',
               obscureText: true,
             ),
+            SizedBox(height: 20),
+            AhTextField(
+              controller: confirmPasswordController,
+              hintText: 'Confirm Password',
+              obscureText: true,
+            ),
             SizedBox(height: 30),
-            AhButton(text: 'Sign In', onTap: onLoginPressed),
+            AhButton(text: 'Sign up', onTap: onRegisterPressed),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Don\'t have an account?',
+                  'Already have an account?',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ),
                 SizedBox(width: 5),
                 GestureDetector(
-                  onTap: onSwitchToRegister,
+                  onTap: onSwitchToLogin,
                   child: Text(
-                    'Register here',
+                    'Login',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).colorScheme.inversePrimary,
