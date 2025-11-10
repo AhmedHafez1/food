@@ -1,6 +1,8 @@
+# @format
+
 name: food_delivery
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -9,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider:
 
 dev_dependencies:
   flutter_test:
