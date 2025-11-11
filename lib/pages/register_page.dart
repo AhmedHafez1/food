@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/components/ah_button.dart';
 import 'package:food_delivery/components/ah_text_field.dart';
+import 'package:food_delivery/pages/home_page.dart';
 
 class RegisterPage extends StatelessWidget {
   final usernameController = TextEditingController();
@@ -11,7 +12,12 @@ class RegisterPage extends StatelessWidget {
 
   RegisterPage({super.key, required this.onSwitchToLogin});
 
-  void onRegisterPressed() {}
+  void onRegisterPressed(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => HomePage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +54,7 @@ class RegisterPage extends StatelessWidget {
               obscureText: true,
             ),
             SizedBox(height: 30),
-            AhButton(text: 'Sign up', onTap: onRegisterPressed),
+            AhButton(text: 'Sign up', onTap: () => onRegisterPressed(context)),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
